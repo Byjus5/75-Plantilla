@@ -91,7 +91,7 @@ export default class RideScreen extends Component {
           bikeAssigned: true
         });
 
-        // For Android users only
+        // Solo para usuarios Android
         // ToastAndroid.show(
         //   "Has rentado la bicicleta por la próxima 1 hora. ¡Disfruta tu viaje!",
         //   ToastAndroid.SHORT
@@ -230,7 +230,7 @@ export default class RideScreen extends Component {
   };
 
   assignBike = async (bikeId, userId, bikeType, userName, email) => {
-    //add a transaction
+    //agregar una transacción
     db.collection("transactions").add({
       user_id: userId,
       user_name: userName,
@@ -240,7 +240,7 @@ export default class RideScreen extends Component {
       transaction_type: "rented",
       email_id: email
     });
-    //change bike status
+    //cambiar el estatus de la bicicleta
     db.collection("bicycles")
       .doc(bikeId)
       .update({
